@@ -11,16 +11,11 @@ diretorio = 'Links dos Materiais'
 
 driver.get('https://www.tcm.pa.gov.br/mural-de-licitacoes/')
 
-for i in range(1, 11):  # ajeitar para automação de geração automatica de arquivos
-    html_content = driver.page_source
+for i in range(1, 11):  # ajeitar para automação de geração automatica de arquivos (itera nas primeiras 10 paginas)
     a_tag_elements = driver.find_elements(By.XPATH, "//tr/td/a")
-    a_tag_elements = [a.get_attribute('href') for a in a_tag_elements]
+    a_tag_element_links = [a.get_attribute('href') for a in a_tag_elements]
 
-    with open(f'bidding_page_{i}.html', 'w', encoding='utf-8') as bidding_page:
-        bidding_page.write(str(driver.page_source))
-    print("Arquivo HTML criado com sucesso!")
-
-    for j, a_tag_element in enumerate(a_tag_elements):
+    for j, a_tag_element in enumerate(a_tag_element_links):
         response_html = requests.get(a_tag_element).text
 
         with open(f'bidding_page_{i}_record_{j+1}.html', 'w', encoding='utf-8') as bidding_page_record:
