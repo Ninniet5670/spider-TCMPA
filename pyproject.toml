@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "autoscrap-tcmpa"
+version = "0.1.0"
+description = ""
+authors = ["Ninniet5670 <marconeto3000@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.19.0"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
